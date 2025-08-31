@@ -267,16 +267,17 @@
 
 <script>
 function sendData() {
-    const payload = { test: 'hello' }; // Replace with real data
+    const payload = { test: 'hello' }; // Your data
+    const encoded = btoa(JSON.stringify(payload)); // base64 encode the payload
 
-    // Convert payload to base64
-    const encoded = btoa(JSON.stringify(payload));
-
-    // Send GET request to the URL with b64 parameter
-    fetch(`https://irlpepe.com/connect?b64=${encoded}`)
-        .then(res => res.text())
-        .then(console.log)
-        .catch(console.error);
+    fetch(`/connect?b64=${encoded}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    })
+    .then(res => res.text())
+    .then(console.log)
+    .catch(console.error);
 }
 </script>
 
